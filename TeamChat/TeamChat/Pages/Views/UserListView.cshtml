@@ -1,0 +1,32 @@
+﻿
+@model TeamChat.ViewModels.UserListViewModel
+@{
+}
+
+
+<table class="table table-hover col-2">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var user in Model.Users)
+    {
+        if (user.UserName != User.Identity.Name)
+        {
+            <tr >
+                    <th scope="row">
+                        <a href="?userId=@user.UserId" class="text-black text-decoration-none">@user.UserName</a>
+                        
+                            @if (Model.HasUnreadMessages(user.UserId))
+                            {
+                                <span class="text-danger fw-bold">*</span>
+                            }
+                        
+                </th>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

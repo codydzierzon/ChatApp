@@ -1,0 +1,15 @@
+﻿
+@model TeamChat.ViewModels.SendFormViewModel
+@{
+}
+
+<form method="post" class="form-group">
+   
+        <div class="input-group mb-3">
+            <input type="hidden" asp-for="Message.SenderId">
+            <input type="hidden" asp-for="Message.ReceiverId">
+            <input type="text" class="form-control" placeholder="Message" asp-for="@Model.Message.Message">
+            <button class="btn btn-primary" type="submit" id="button-addon2">Send</button>
+        </div>
+
+</form>

@@ -1,0 +1,25 @@
+﻿@model TeamChat.ViewModels.ConversationViewModel
+@{
+}
+
+<div class="d-flex flex-column">
+@*    <p>some text</p>
+    <p>some other text</p>
+    <p>some text</p>
+    <p>some more text</p>
+*@
+    @if (Model.Messages != null)
+    {
+        @foreach (var message in Model.Messages)
+        {
+            @if (message.SenderId == Model.Me.UserId)
+            {
+                <p id="Me"> @message.Message</p>
+            }
+            @if (message.SenderId == Model.OtherUser.UserId)
+            {
+                <p id="OtherUser"> @message.Message</p>
+            }
+        }
+    }
+</div>
